@@ -1,12 +1,18 @@
 package main
 
-import "net/http"
+import (
+	"context"
+	"log"
+)
 
 func main() {
-	mux := http.NewServeMux()
-	mux.HandleFunc("/test", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("/test response"))
-	})
+	conn, err := connectToDatabase()
 
-	http.ListenAndServe(":8000", mux)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	defer conn.Close(context.Background())
+
+	log.Println("Successfully connected to the database.")
 }

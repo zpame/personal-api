@@ -3,10 +3,11 @@ package main
 import (
 	"context"
 	"log"
+	"zack-personal-api/internal/database"
 )
 
 func main() {
-	conn, err := connectToDatabase()
+	conn, err := database.ConnectToDatabase()
 
 	if err != nil {
 		log.Fatal(err)

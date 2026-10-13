@@ -1,4 +1,4 @@
-package main
+package database
 
 import (
 	"context"
@@ -8,7 +8,7 @@ import (
 	"github.com/jackc/pgx/v5"
 )
 
-func connectToDatabase() (*pgx.Conn, error) {
+func ConnectToDatabase() (*pgx.Conn, error) {
 	connectionString := os.Getenv("DATABASE_CONNECTION_STRING")
 
 	if connectionString == "" {

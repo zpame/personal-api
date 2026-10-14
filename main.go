@@ -1,8 +1,8 @@
 package main
 
 import (
-	"context"
 	"log"
+
 	"zack-personal-api/internal/database"
 )
 
@@ -13,7 +13,7 @@ func main() {
 		log.Fatal(err)
 	}
 
-	defer conn.Close(context.Background())
+	defer conn.Close()
 
 	log.Println("Successfully connected to the database.")
 }
